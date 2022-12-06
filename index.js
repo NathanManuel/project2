@@ -10,6 +10,9 @@ function equal() {
   const equal = document.getElementById("result");
   equal.onclick = () => {
     // for each operator there is a different operation, first number (total) becomes the total of both first and second number
+    if (nr == 0) {
+      nr = total;
+    }
     switch (ope) {
       case "+":
         total += nr;
@@ -24,13 +27,14 @@ function equal() {
         total /= nr;
         break;
       default:
-        total *= 2;
+        total = total;
     }
     // resets operator and second number
     ope = null;
     eq = true;
     nr = 0;
-    input.textContent = Math.round(total * 100) / 100;
+    total = Math.round(total * 100) / 100;
+    input.textContent = total;
   };
 }
 function operators() {
